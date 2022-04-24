@@ -1,6 +1,12 @@
 server:
   port: 8080
 
+
 external:
   system-service:
     url: https://e-commerce-api-recruitment.herokuapp.com
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
