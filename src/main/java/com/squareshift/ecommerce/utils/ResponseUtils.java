@@ -1,7 +1,6 @@
 package com.squareshift.ecommerce.utils;
 
 import com.squareshift.ecommerce.constants.Constants;
-import com.squareshift.ecommerce.response.MetaResponse;
 import com.squareshift.ecommerce.response.ResponseData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

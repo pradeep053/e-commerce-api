@@ -20,17 +20,6 @@ import java.util.Set;
 //@EnableSwagger2WebMvc
 @EnableSwagger2
 public class SwaggerConfig {
-  /*  public static final Contact CONTACT = new Contact("Murali", "http://muralitechblog.com/",
-            "muralitechblog@gmail.com");
-    public static final ApiInfo DEFAULT_API = new ApiInfo("swagger", "Swagger Documentation", "1.0", "urn:tos", CONTACT,
-            "Apache 2.0", "http://www.apache.org/licenses/LICENSE-2.0", new ArrayList<>());
-    public static final Set<String> consumes = new HashSet<String>(Arrays.asList("application/json"));
-    public static final Set<String> produces = new HashSet<String>(Arrays.asList("application/json"));
-
-    @Bean
-    public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2).apiInfo(DEFAULT_API).consumes(consumes).produces(produces);
-    }*/
 
     @Bean
     public Docket productApi2() {

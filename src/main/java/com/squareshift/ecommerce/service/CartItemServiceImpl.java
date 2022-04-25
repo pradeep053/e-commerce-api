@@ -1,7 +1,6 @@
 package com.squareshift.ecommerce.service;
 
 import com.squareshift.ecommerce.constants.Constants;
-import com.squareshift.ecommerce.dto.CartItemsAddResponseDto;
 import com.squareshift.ecommerce.dto.ProductDto;
 import com.squareshift.ecommerce.dto.WarehouseResponseDto;
 import com.squareshift.ecommerce.entity.CartItems;
@@ -11,7 +10,6 @@ import com.squareshift.ecommerce.repository.CartItemsRepository;
 import com.squareshift.ecommerce.request.AddItemRequest;
 import com.squareshift.ecommerce.request.DeleteItemRequest;
 import com.squareshift.ecommerce.response.Items;
-import com.squareshift.ecommerce.response.MetaResponse;
 import com.squareshift.ecommerce.response.ResponseData;
 import com.squareshift.ecommerce.response.ResponseItemsData;
 import com.squareshift.ecommerce.utils.CommonUtils;
