@@ -11,6 +11,13 @@ public interface Constants {
     String PRODUCT_ID="product_id";
     String QUANTITY="quantity";
 
+    String SHOPPING_COST="shipping_cost";
+    String MIN_DISTANCE="min_distance";
+    String MAX_DISTANCE="max_distance";
+    String MIN_WEIGHT="min_weight";
+    String MAX_WEIGHT="max_weight";
+    String COST="cost";
+
 
     String INVALID_PRODUCT_ID ="Invalid product id";
     String NULL_REQUEST="Request is null";

@@ -7,12 +7,12 @@ import com.squareshift.ecommerce.entity.CartItems;
 import com.squareshift.ecommerce.exception.CustomException;
 import com.squareshift.ecommerce.exception.EntityNotFoundException;
 import com.squareshift.ecommerce.repository.CartItemsRepository;
+import com.squareshift.ecommerce.repository.ShoppingCostRepository;
 import com.squareshift.ecommerce.request.AddItemRequest;
 import com.squareshift.ecommerce.request.DeleteItemRequest;
 import com.squareshift.ecommerce.response.Items;
 import com.squareshift.ecommerce.response.ResponseData;
 import com.squareshift.ecommerce.response.ResponseItemsData;
-import com.squareshift.ecommerce.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +34,9 @@ public class CartItemServiceImpl implements CartItemsService{
 
     @Autowired
     private WareHouseService wareHouseService;
+
+    @Autowired
+    private ShoppingCostRepository shoppingCostRepository;
 
 
     @Override
@@ -108,11 +111,18 @@ public class CartItemServiceImpl implements CartItemsService{
                 ProductDto productDto = productService.getProductById(cartItems.getProductID());
                 weight+=productDto.getWeight_in_grams()*cartItems.getQuantity();
             }
-            float amount= CommonUtils.calculateTotalAmount(warehouseResponseDto.getDistance_in_kilometers(),weight);
+          //  ShoppingCost shoppingCost=shoppingCostRepository.getById(3);
+            float amount =shoppingCostRepository.getCost((float)warehouseResponseDto.getDistance_in_kilometers(),getWeightInKg(weight));
+          //  float amount= CommonUtils.calculateTotalAmount(warehouseResponseDto.getDistance_in_kilometers(),weight);
             return new ResponseEntity<>(new ResponseData<>(Constants.SUCCESS,Constants.TOTAL_AMOUNT+Float.valueOf(amount)), HttpStatus.OK);
         }catch (Exception e){
             throw new EntityNotFoundException(Constants.INVALID_POSTAL);
 
         }
+    }
+
+
+    private float getWeightInKg(long weightInGrams){
+        return ((float) weightInGrams/1000);
     }
 }
