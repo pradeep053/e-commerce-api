@@ -7,7 +7,7 @@ import com.squareshift.ecommerce.entity.CartItems;
 import com.squareshift.ecommerce.exception.CustomException;
 import com.squareshift.ecommerce.exception.EntityNotFoundException;
 import com.squareshift.ecommerce.repository.CartItemsRepository;
-import com.squareshift.ecommerce.repository.ShoppingCostRepository;
+import com.squareshift.ecommerce.repository.ShippingCostRepository;
 import com.squareshift.ecommerce.request.AddItemRequest;
 import com.squareshift.ecommerce.request.DeleteItemRequest;
 import com.squareshift.ecommerce.response.Items;
@@ -36,7 +36,7 @@ public class CartItemServiceImpl implements CartItemsService{
     private WareHouseService wareHouseService;
 
     @Autowired
-    private ShoppingCostRepository shoppingCostRepository;
+    private ShippingCostRepository shippingCostRepository;
 
 
     @Override
@@ -112,7 +112,7 @@ public class CartItemServiceImpl implements CartItemsService{
                 weight+=productDto.getWeight_in_grams()*cartItems.getQuantity();
             }
           //  ShoppingCost shoppingCost=shoppingCostRepository.getById(3);
-            float amount =shoppingCostRepository.getCost((float)warehouseResponseDto.getDistance_in_kilometers(),getWeightInKg(weight));
+            float amount =shippingCostRepository.getCost((float)warehouseResponseDto.getDistance_in_kilometers(),getWeightInKg(weight));
           //  float amount= CommonUtils.calculateTotalAmount(warehouseResponseDto.getDistance_in_kilometers(),weight);
             return new ResponseEntity<>(new ResponseData<>(Constants.SUCCESS,Constants.TOTAL_AMOUNT+Float.valueOf(amount)), HttpStatus.OK);
         }catch (Exception e){

@@ -11,7 +11,7 @@ public interface Constants {
     String PRODUCT_ID="product_id";
     String QUANTITY="quantity";
 
-    String SHOPPING_COST="shipping_cost";
+    String SHIPPING_COST="shipping_cost";
     String MIN_DISTANCE="min_distance";
     String MAX_DISTANCE="max_distance";
     String MIN_WEIGHT="min_weight";

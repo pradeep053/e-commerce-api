@@ -7,8 +7,8 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name= Constants.SHOPPING_COST)
-public class ShoppingCost {
+@Table(name= Constants.SHIPPING_COST)
+public class ShippingCost {
 
     @Id
     @Column(name = Constants.ID)
